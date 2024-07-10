@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Case normal 7.2
+  </title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    /* 2. Дана последовательность натуральных чисел. Создать массив из четных чисел заданной последовательности. Если таких чисел нет, то вывести сообщение об этом. Числа вводятся через пробел в одном диалоговом окне prompt.*/
+
+    let str = prompt('Введите целочисленную последвательность включающую четные числа:', '1 4 7 9 16 35 24 18 11 44');
+    let strArray = str.split(' ');
+    let strArrayNum = strArray.map(Number);
+    let strNew = [];
+
+    strArrayNum.forEach((e, i) => {
+      if (e % 2 == 0) strNew.push(e); {
+      }
+    });
+
+    if (strNew.length == 0) {
+      console.log('Введеная последовательность не включает целые числа!')
+    }
+    else {
+      console.log(strNew);
+    }
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Case normal 7.1
+  </title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    /* 1. В целочисленной последовательности есть нулевые элементы. Создать массив из номеров этих элементов. Числа вводятся через пробел в одном диалоговом окне prompt.*/
+
+    let str = prompt('Введите целочисленную последвательность включающую нулевые элементы:', '1 0 -7 9 0 35 0 -18 11 0');
+    let strArray = str.split(' ');
+    let strArrayNum = strArray.map(Number);
+    let strNew = [];
+
+    strArrayNum.forEach((e, i) => {
+      if (e == 0) strNew.push(i);
+    });
+
+    console.log(strNew);
+
+  </script>
+</body>
+
+</html>

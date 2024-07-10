@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Case normal 7.3
+  </title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    /* 3. В числовой последовательности определить количество и произведение элементов, расположенных между максимальным и минимальным. Максимальный и минимальный элементы в расчёт количества и произведения не включать. Подразумевается, что в последовательности все числа разные. Числа вводятся через пробел в одном окне prompt. Осуществить проверку того, что пользователь действительно ввел разные числа.*/
+
+    let str = prompt('Введите целочисленную последвательность:', '1 4 7 -1 0 5 -2 3');
+    let strArray = str.split(' ');
+    let strArrayNum = strArray.map(Number);
+    let strNew = [];
+
+    let min = Math.min.apply(null, strArrayNum);
+    let max = Math.max.apply(null, strArrayNum);
+    let minI = strArrayNum.indexOf(min);
+    let maxI = strArrayNum.indexOf(max);
+
+    let countItems = [];
+    for (const item of strArrayNum) {
+      countItems[item] = countItems[item] ? countItems[item] + 1 : 1;
+    }
+    let result = Object.keys(countItems).filter((item) => countItems[item] > 1);
+
+    if (result.length !== 0) {
+      console.log('Ошибка! Есть повторяющиеся цифры.');
+    } else {
+      strNew = strArrayNum.slice(maxI + 1, minI);
+      var multi = 1;
+      strNew.forEach(function (num) {
+        multi *= num;
+      });
+      strNew = strArrayNum.slice(maxI + 1, minI);
+
+      console.log('Результат: количество =', strNew.length + ';', 'произведение =', multi + ';');
+    }
+  </script>
+</body>
+
+</html>

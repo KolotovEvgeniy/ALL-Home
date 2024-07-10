@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Case normal 7.4
+  </title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    /* 4. Задана числовая последовательность. Напечатать положительные числа в порядке убывания, используя метод сортировки бинарными включениями. Числа вводятся через пробел в одном окне prompt.*/
+
+
+    let str = prompt('Введите целочисленную последвательность:', '1 4 7 -1 0 5 -2 3');
+    let strArray = str.split(' ');
+    let strArrayNum = strArray.map(Number);
+    let strNew = [];
+    let key;
+
+    strArrayNum.sort((a, b) => a - b);
+    strArrayNum.reverse();
+
+
+    function binarySearch(strArrayNum, key) {
+      let start = 0;
+      let end = strArrayNum.length - 1;
+
+      while (start <= end) {
+        let middle = Math.floor((start + end) / 2);
+
+        if (strArrayNum[middle] === key) {
+          return middle;
+        } else if (strArrayNum[middle] < key) {
+          start = middle + 1;
+        } else {
+          end = middle - 1;
+        }
+      }
+    }
+
+    for (let i = 0; i < strArrayNum.length; i++) {
+      if (strArrayNum[i] > 0) {
+        console.log(strArrayNum[i]);
+      }
+    }
+  </script>
+</body>
+
+</html>
